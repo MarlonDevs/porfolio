@@ -1,0 +1,45 @@
+---
+import TitleSection from "../../components/TitleSection.astro";
+
+import { Image } from "astro:assets";
+import imgUser from "../../assets/user.avif";
+
+const altImage = "Marlon Mogollon";
+---
+
+<section id="about">
+  <TitleSection> About me </TitleSection>
+  <main
+    class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row"
+  >
+    <section
+      class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
+    >
+      <p class="text-md">
+        Me llamo Miguel Ángel pero mis amigos me llaman midu. Empecé en la programación con un Amstrad, tenía 10 años. Actualmente estoy liderando equipos de desarrollo en multinacionales.
+      </p><br /><p>
+        Algunos de mis éxitos incluyen colaborar con Mozilla para el desarrollo de las primeras apps en su sistema FirefoxOS. Aunque hoy está desaparecido fue un gran avance en el mundo del desarrollo web.
+      </p><br /><p>
+        Como creador de contenido, cuento con el canal de habla hispana más visto del mundo en la categoría de Software & Game Development en Twitch. Mi objetivo es mejorar la empleabilidad de la comunidad hispana y el acceso a contenido de calidad.
+      </p>
+    </section>
+
+    
+
+    <Image
+      src={imgUser}
+      alt={altImage}
+      class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
+      style="object-position: 50% 50%"
+    />
+
+    <!--<img
+      src="/user.avif"
+      alt={altImage}
+      width="200"
+      height="200"
+      class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
+      style="object-position: 50% 50%"
+    /> -->
+  </main>
+</section>

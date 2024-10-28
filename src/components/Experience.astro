@@ -1,0 +1,34 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCE = [
+  {
+    date: "Mar. 2024 - Jun. 2024",
+    title: "Website design and development by - Ximena Troncoso",
+    company: "Freelance work",
+    description:
+      // "I have developed and contributed part of the design of the website of Ximena Troncoso, NLP Coach, International Mentor, Writer and Columnist in the German magazine Cli Digital.",
+      `I have designed and developed Ximena Troncoso's website, a web portfolio created with Astro.js, where she shows who she is and what she does.`,
+    link: "https://ximenatroncoso.com",
+  },
+  {
+    date: "Jun. 2022",
+    title: "Front Developer - Dora.mcbo",
+    company: "Dora.mcbo",
+    description:
+      // "Main developer in the creation of the Dora virtual store, significant contribution as a developer, participation in UX/UI design, CEO and web positioning of the same.",
+      "Lead developer in the creation of the Dora virtual store, significant contribution as a developer, participation in the UX/UI design, CEO and web positioning of the same.",
+    Link: "https://doramcbo.netlify.app",
+  },
+]
+---
+
+<ol class="relative">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

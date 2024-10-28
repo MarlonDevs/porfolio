@@ -1,0 +1,84 @@
+---
+import Button from "../../components/Button.astro";
+import ExternalPage from "../../components/icons/ExternalPage.astro";
+import TitleSection from "../../components/TitleSection.astro";
+
+import ximenaWeb from "../../assets/ximena_web.avif";
+import adventjs from "../../assets/adventjs.webp";
+import svgl from "../../assets/svgl.webp";
+
+import { Image } from "astro:assets";
+
+// class="oject-cover object-top w-[350px] h-[350px] rounded-2xl"
+
+const PROJECTS = [
+  {
+    title: "Website personal - Ximena Troncoso Coach",
+    description:
+      "Ximena's web portfolio, where she shows what she does, the services she offers and how to hire her. Astro.js and TailwindCSS were used for its development. The reason for this decision was that Ximena wanted a page that was not very dynamic and very fast.",
+    link: "https://ximenatroncoso.com/",
+    github: "https://github.com/MarlonDevs/ximena-portfolio",
+    image: ximenaWeb,
+  },
+  {
+    title: "Front Developer Engineer - Dora.mcbo",
+    description:
+      "Main developer in the creation of the Dora virtual store, significant contribution as a developer, participation in UX/UI design, CEO and web positioning of the same.",
+    link: "https://adventjs.dev",
+    image: svgl,
+    //tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+];
+---
+
+<article id="projects">
+  <TitleSection>Projects</TitleSection>
+  <div class="flex flex-col gap-y-16">
+    {
+      PROJECTS.map(({ image, title, description, link, github }) => (
+        <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0  text-wrap gap-5">
+          <div class="w-full md:w-1/2">
+            <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+              <Image
+                src={image}
+                alt={title}
+                class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          {/* <Image
+            src={image}
+            alt={title}
+            class="w-[350px] rounded-2xl"
+            width="350"
+            height="350"
+          /> */}
+          <div class="w-full sm:w-1/2 sm:max-w-lg grid justify-between items-center">
+            <h2 class="text-xl font-bold capitalize text-balance">{title}</h2>
+            <p class="text-base text-pretty my-4">{description}</p>
+
+            {link && (
+              <Button
+                href={link}
+                class="flex gap-1 text-base border px-2 py-1 rounded-md"
+              >
+              <ExternalPage class="size-6" />
+                view
+              </Button>
+            )}
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</article>
+
+<style>
+  img {
+    image-resolution: from-image;
+    image-resolution: 300dpi;
+    image-resolution: from-image 300dpi;
+    image-resolution: 300dpi snap;
+  }
+</style>

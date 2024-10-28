@@ -1,0 +1,62 @@
+---
+import Button from "./Button.astro";
+import Cv from "./icons/Cv.astro";
+import Github from "./icons/Github.astro";
+import LinkedIn from "./icons/LinkedIn.astro";
+import Mail from "./icons/Mail.astro";
+
+const SOCIALSICONS = {
+  LINKEDIN: {
+    class: "text-white size-5",
+    icon: LinkedIn,
+  },
+  GITHUB: {
+    class: "text-white size-5",
+    icon: Github,
+  },
+  CV: {
+    class: "text-white size-5",
+    icon: Cv,
+  },
+  MAIL: { 
+    class: "text-white size-5",
+    icon: Mail,
+  },
+}
+
+const SOCIALS = [
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com/in/marlon-mogollon-dev/",
+    socialIcons: [SOCIALSICONS.LINKEDIN],
+  },
+  {
+    name: "Github",
+    href: "https://github.com/marlondevs",
+    socialIcons: [SOCIALSICONS.GITHUB],
+  },
+  {
+    name: "Resume",
+    href: "/#",
+    socialIcons: [SOCIALSICONS.CV],
+  },
+  {
+    name: "marlonmogollon13@gmail.com",
+    href: "mailto:marlonmogollon13@gmail.com",
+    socialIcons: [SOCIALSICONS.MAIL],
+  },
+];
+---
+
+<section class="flex flex-wrap gap-4 justify-start">
+  {
+    SOCIALS.map(({ name, href, socialIcons }) => (
+      <Button href={href} class="flex items-center">
+        {socialIcons.map(({ class: className, icon: Icon }) => (
+          <Icon class={className} />
+        ))}
+        {name}
+      </Button>
+    ))
+  }
+</section>

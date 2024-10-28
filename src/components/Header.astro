@@ -1,0 +1,69 @@
+---
+import ThemeToggle from "./ThemeToggle.astro"
+
+const navItems = [
+  {
+    title: "home",
+    label: "home",
+    url: "/#",
+  },
+  {
+    title: "experience",
+    label: "experience",
+    url: "/#experience",
+  },
+  {
+    title: "projects",
+    label: "projects",
+    url: "/#projects",
+  },
+  {
+    title: "about",
+    label: "about",
+    url: "/#about",
+  },
+  {
+    title: "Contacto",
+    label: "contacto",
+    url: "mailto:miduga@gmail.com",
+  },
+];
+---
+
+<header class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2 ">
+  <ul class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center">
+    {
+      navItems.map((link) => (
+        <a
+          href={link.url}
+          class="relative block px-2 py-2 font-bold transition hover:text-[#3da9fc] dark:hover:text-[#8bd3dd] hover:border-b-2 border-transparent hover:border-[#3da9fc] dark:hover:border-[#8bd3dd]
+          capitalize"
+          aria-label={link.label}
+        >
+          {link.title}
+        </a>
+      ))
+    }
+  </ul>
+</header>
+
+<style>
+  ul {
+    animation: nav-shadown 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  ul {
+    @apply dark:bg-gray-800/60 bg-white/50;
+  }
+
+  @keyframes nav-shadown {
+    0% {
+      @apply dark:bg-gray-800/0 bg-white/0;
+    }
+    to {
+      @apply shadow-lg ring-1 backdrop-blur ring-white/10;
+    }
+  }
+</style>

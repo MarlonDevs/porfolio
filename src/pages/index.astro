@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import SectionContainer from "../components/SectionContainer.astro";
+
+import AboutSection from "./sections/AboutSection.astro";
+import ExpSection from "./sections/ExpSection.astro";
+import HeroSection from "./sections/HeroSection.astro";
+import ProjSection from "./sections/ProjSection.astro";
+
+// md:py-36 gap-4 md:gap-8 -mb-16 py-14 sm:mt-0 sm:-mb-16
+---
+
+<Layout title="Portfolio de Marlon Mogollon - Desarrollador y Programador Web">
+  <main class="w-[80vw] h-full grid justify-center items-center m-auto ">
+    <SectionContainer class="mt-32 sm:mt-40 mb-24">
+      <HeroSection />
+      <slot />
+    </SectionContainer>
+    <SectionContainer>
+      <ExpSection id="experience" />
+      <slot/>
+    </SectionContainer>
+    <SectionContainer>
+      <ProjSection id="projects" />
+      <slot/>
+    </SectionContainer>
+    <SectionContainer>
+      <AboutSection id="about" />
+      <slot/>
+    </SectionContainer>
+  </main>
+</Layout>
+
+<style></style>
